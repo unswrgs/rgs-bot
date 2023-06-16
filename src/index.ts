@@ -13,13 +13,7 @@ const client = new Client({
 
 client.once("ready", () => {
   console.log("Discord bot is ready! 🤖");
-});
-
-/**
- * Deploy commands when new guild has been created
- */
-client.on("guildCreate", async (guild) => {
-  await deployCommands({ guildId: guild.id });
+  deployCommands({ guildId: config.GUILD_ID });
 });
 
 /**
@@ -39,3 +33,4 @@ client.on("interactionCreate", async (interaction) => {
  * Login the client using the bot token
  */
 client.login(config.DISCORD_TOKEN);
+
