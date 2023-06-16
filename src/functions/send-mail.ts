@@ -33,7 +33,8 @@ export const sendVerificationEmail = (
       <p style="font-size: 1.1em">Hi ${username},</p>
       <p>
         Thank you for joining UNSW Rhythm Game Society. Use the following
-        Verification code to gain access to the rest of the Discord Server
+        Verification code to gain access to the rest of the Discord Server, 
+        this code expires in 5 minutes.
       </p>
       <h2
         style="
