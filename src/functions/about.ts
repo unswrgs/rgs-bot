@@ -6,6 +6,8 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
   // TODO: add a nicer about me message here
-  return interaction.reply("I am a bot developed for RGS");
+  return interaction.reply(
+    "RGS's very own automatic verification bot for non-unsw members 🚀"
+  );
 }
 

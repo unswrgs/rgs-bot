@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, Guild, User } from "discord.js";
+import { Client, GatewayIntentBits, Guild } from "discord.js";
 import { deployCommands } from "./deploy-commands";
 import { commands } from "./commands";
 import { config } from "./config";
