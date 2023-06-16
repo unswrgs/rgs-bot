@@ -1,8 +1,8 @@
 import * as ping from "../functions/ping";
-import * as verify from "../functions/verify";
+import * as about from "../functions/about";
 
 export const commands = {
   ping,
-  verify,
+  about,
 };
 
