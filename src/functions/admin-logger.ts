@@ -10,8 +10,6 @@ export const logMessage = (username: string | null, client: Client) => {
     const channel: Channel | undefined = client.channels.cache.get(
         config.LOGGING_CHANNEL_ID
     );
-    if (channel)
-        (channel as TextChannel).send(
-            username + " requires manual verification"
-        );
+    if (!channel) return;
+    (channel as TextChannel).send(username + " requires manual verification");
 };

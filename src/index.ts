@@ -1,6 +1,6 @@
 import { Client, GatewayIntentBits, Guild } from "discord.js";
 import { deployCommands } from "./deploy-commands";
-import { commands } from "./commands";
+import { commands } from "./commands/command-list";
 import { config } from "./config";
 import { verifyUser } from "./functions/verify-user";
 import { logMessage } from "./functions/admin-logger";
@@ -50,7 +50,7 @@ client.on("messageCreate", async (message) => {
             return u.user.username + "#" + u.user.discriminator === userTag;
         });
 
-        // choose automatic or manual verification if user is in cache
+        // choose automatic or manual verification if user is in guild cache
         userInGuild
             ? verifyUser(email, name, userInGuild.user, client, guild)
             : logMessage(userTag, client);

@@ -36,33 +36,31 @@ export const verifyUser = async (
             });
             console.log(`start of ${user.username} verification`);
             collector.on("collect", async (m) => {
-                if (m.content === code) {
-                    m.reply(
-                        "Verification successful, Welcome to UNSW Rhythm Game Society!"
-                    );
-                    // Gives user the verified role
-                    try {
-                        const member = guild.members.cache.get(user.id);
-                        if (!member) throw new Error("invalid member");
-                        const role = guild.roles.cache.get(
-                            config.VERIFIED_ROLE_ID
-                        );
-                        if (!role) throw new Error("invalid role ID");
-                        await member.roles.add(role);
-                    } catch (e) {
-                        dm.send(
-                            "experienced error while verifying you, please ask an admin to manually verify you"
-                        );
-                        logMessage(user.username, client);
-                        collector.stop();
-                        return;
-                    }
-                    collector.stop();
-                } else {
+                if (m.content !== code) {
                     dm.send(
                         "You entered the wrong verification code, please try again! also don't forget to check spam"
                     );
+                    return;
                 }
+                m.reply(
+                    "Verification successful, Welcome to UNSW Rhythm Game Society!"
+                );
+                // Gives user the verified role
+                try {
+                    const member = guild.members.cache.get(user.id);
+                    if (!member) throw new Error("invalid member");
+                    const role = guild.roles.cache.get(config.VERIFIED_ROLE_ID);
+                    if (!role) throw new Error("invalid role ID");
+                    await member.roles.add(role);
+                } catch (e) {
+                    dm.send(
+                        "experienced error while verifying you, please ask an admin to manually verify you"
+                    );
+                    logMessage(user.username, client);
+                    collector.stop();
+                    return;
+                }
+                collector.stop();
             });
             collector.on("end", () =>
                 console.log(`end of ${user.username} verification`)
