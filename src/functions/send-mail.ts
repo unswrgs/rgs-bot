@@ -2,13 +2,13 @@ import sgMail from "@sendgrid/mail";
 import { config } from "../config";
 
 export const sendVerificationEmail = (
-  email: string,
-  username: string,
-  code: string
+    email: string,
+    username: string,
+    code: string
 ) => {
-  sgMail.setApiKey(config.SENDGRID_API_KEY);
+    sgMail.setApiKey(config.SENDGRID_API_KEY);
 
-  const mailContent = `
+    const mailContent = `
   <div
     style="
       font-family: Helvetica, Arial, sans-serif;
@@ -66,20 +66,19 @@ export const sendVerificationEmail = (
     </div>
   </div>`;
 
-  const msg = {
-    to: email,
-    from: "unsw.rhythmgamesoc.noreply@gmail.com",
-    subject: "Verification Code for UNSW Rhythm Games Society",
-    text: `Hi ${username} Your Verfication Code is ${code}`,
-    html: mailContent,
-  };
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log("Email sent");
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    const msg = {
+        to: email,
+        from: "unsw.rhythmgamesoc.noreply@gmail.com",
+        subject: "Verification Code for UNSW Rhythm Games Society",
+        text: `Hi ${username} Your Verfication Code is ${code}`,
+        html: mailContent,
+    };
+    sgMail
+        .send(msg)
+        .then(() => {
+            console.log("Email sent");
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 };
-
