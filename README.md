@@ -10,6 +10,7 @@ A bot developed by [@HARI-PRMD](https://github.com/HARI-PRMD) for [UNSW Rhythm G
 
 ## Planned Features
 
+- ChatGPT integration with mascot's personality.
 - Reactions to scores posted in `#flex-channel` and encouragement
 - Participation in chat whenever mentioned
 - Jokes... probably
