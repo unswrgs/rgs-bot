@@ -3,7 +3,7 @@ import { deployCommands } from "./deploy-commands";
 import { commands } from "./commands/command-list";
 import { config } from "./config";
 import { verifyUser } from "./functions/verify-user";
-import { logMessage } from "./functions/admin-logger";
+import { logVerificationErrorMessage } from "./functions/admin-logger";
 
 /**
  * Create a new Discord Client and set its intents to determine which events
@@ -53,7 +53,7 @@ client.on("messageCreate", async (message) => {
         // choose automatic or manual verification if user is in guild cache
         userInGuild
             ? verifyUser(email, name, userInGuild.user, client, guild)
-            : logMessage(userTag, client);
+            : logVerificationErrorMessage(userTag, client);
     }
 });
 
