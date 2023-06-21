@@ -6,7 +6,10 @@ import { config } from "../config";
  * @param username as String
  * @param client as Discord Client object
  */
-export const logMessage = (username: string | null, client: Client) => {
+export const logVerificationErrorMessage = (
+    username: string | null,
+    client: Client
+) => {
     const channel: Channel | undefined = client.channels.cache.get(
         config.LOGGING_CHANNEL_ID
     );
