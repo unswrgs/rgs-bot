@@ -28,7 +28,11 @@ client.once("ready", () => {
  * Watches for messages from webhook channel
  */
 client.on("messageCreate", async (message) => {
-    if (message.channelId === config.WEBHOOK_CHANNEL) {
+    // ignores messages that aren't of format (don't include delimiters)
+    if (
+        message.channelId === config.WEBHOOK_CHANNEL &&
+        message.content.includes(":")
+    ) {
         const data: string[] = message.content.split(":");
         const email: string = data[0];
         const name: string = data[1];
