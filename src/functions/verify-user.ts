@@ -73,7 +73,7 @@ export const verifyUser = async (
                         console.log(`end of ${user.username} verification`)
                     );
                 })
-                .catch((err) => {
+                .catch(() => {
                     // if user has dms blocked send them message in #unverified-chat
                     // find verification channel
                     const channel: Channel | undefined =
