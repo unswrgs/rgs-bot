@@ -31,10 +31,9 @@ client.on("messageCreate", async (message) => {
     // ignores messages that aren't of format (don't include delimiters)
     if (
         message.channelId === config.WEBHOOK_CHANNEL &&
-        message.content.includes("VERIFICATIONLOGGING")
+        message.author.id === config.WEBHOOK_SENDER_ID
     ) {
-        const content = message.content.replace("VERIFICATIONLOGGING", "");
-        const data: string[] = content.split(":");
+        const data: string[] = message.content.split(":");
         const email: string = data[0];
         const name: string = data[1];
         let userTag: string = data[2];

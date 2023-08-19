@@ -11,6 +11,7 @@ const {
     WEBHOOK_CHANNEL,
     VERIFIED_ROLE_ID,
     LOGGING_CHANNEL_ID,
+    WEBHOOK_SENDER_ID,
 } = process.env;
 
 if (
@@ -21,7 +22,8 @@ if (
     !BOT_ID ||
     !WEBHOOK_CHANNEL ||
     !VERIFIED_ROLE_ID ||
-    !LOGGING_CHANNEL_ID
+    !LOGGING_CHANNEL_ID ||
+    !WEBHOOK_SENDER_ID
 ) {
     throw new Error("Missing environment variables");
 }
@@ -39,4 +41,5 @@ export const config = {
     SENDGRID_API_KEY,
     VERIFIED_ROLE_ID,
     LOGGING_CHANNEL_ID,
+    WEBHOOK_SENDER_ID,
 };
