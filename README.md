@@ -1,6 +1,6 @@
-# UNSW Rhythm Game Society Discord Bot
+# UNSW Lofi Society Discord Bot
 
-A bot developed by [@HARI-PRMD](https://github.com/HARI-PRMD) for [UNSW Rhythm Game Society](https://www.arc.unsw.edu.au/get-involved/opportunity?name=Rhythm%20Games%20Society)
+A bot developed by [@Gitalexzhong](https://github.com/Gitalexzhong) for [UNSW Lofi Society](linktr.ee/lofisoc)
 
 ## Available Features
 
@@ -8,10 +8,6 @@ A bot developed by [@HARI-PRMD](https://github.com/HARI-PRMD) for [UNSW Rhythm G
 - Ping -> Pong (interaction)
 - About Bot (interaction)
 
-## Planned Features
+## Credits
 
-- ChatGPT integration with mascot's personality.
-- Reactions to scores posted in `#flex-channel` and encouragement
-- Participation in chat whenever mentioned
-- Jokes... probably
-- Automatic Moderating of bad key words etc.
+Lofi's discord bot is a forked project based on the [rgs-bot](https://github.com/unswrgs/rgs-bot) developed by [@HARI-PRMD](https://github.com/HARI-PRMD) for [UNSW Rhythm Game Society](https://www.arc.unsw.edu.au/get-involved/opportunity?name=Rhythm%20Games%20Society)
