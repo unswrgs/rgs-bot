@@ -1,9 +1,20 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { client } from "..";
 
 export const data = new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Replies with Pong!");
+    .setDescription("returns status of bot's functioning!");
 
 export async function execute(interaction: CommandInteraction) {
-    return interaction.reply("Pong!");
+    const sent = await interaction.reply({
+        content: "Pinging...",
+        fetchReply: true,
+    });
+    return interaction.editReply(
+        `Bot is Working\n**Websocket heartbeat:** ${
+            client.ws.ping
+        }ms.\nRoundtrip latency: ${
+            sent.createdTimestamp - interaction.createdTimestamp
+        }ms`
+    );
 }

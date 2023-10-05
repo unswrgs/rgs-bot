@@ -9,7 +9,7 @@ import { logVerificationErrorMessage } from "./functions/admin-logger";
  * Create a new Discord Client and set its intents to determine which events
  * the bot will receive information about.
  */
-const client = new Client({
+export const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
