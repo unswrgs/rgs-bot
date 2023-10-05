@@ -18,6 +18,6 @@ export async function execute(interaction: CommandInteraction) {
     const roundtripLatency = differenceInMilliseconds(startTime, endTime);
 
     return interaction.editReply(
-        `Bot is Working\n**Websocket heartbeat:** ${heartbeatLatency}ms.\nRoundtrip latency: ${roundtripLatency}ms`
+        `Bot is Working\nWebsocket heartbeat: ${heartbeatLatency}ms.\nRoundtrip latency: ${roundtripLatency}ms`
     );
 }
