@@ -2,8 +2,9 @@ import { Client, GatewayIntentBits, Guild } from "discord.js";
 import { deployCommands } from "./deploy-commands";
 import { commands } from "./commands/command-list";
 import { config } from "./config";
-import { verifyUser } from "./functions/verify-user";
-import { logVerificationErrorMessage } from "./functions/admin-logger";
+import { tagUser, verifyUser } from "./functions/verify-user";
+// import { verifyUser } from "./functions/verify-user";
+// import { logVerificationErrorMessage } from "./functions/admin-logger";
 
 /**
  * Create a new Discord Client and set its intents to determine which events
@@ -30,34 +31,42 @@ client.once("ready", () => {
 client.on("messageCreate", async (message) => {
     // ignores messages that aren't of format (don't include delimiters)
     if (
-        message.channelId === config.WEBHOOK_CHANNEL &&
-        message.author.id === config.WEBHOOK_SENDER_ID
+        message.channelId === config.WEBHOOK_CHANNEL
+        //&& message.author.id === config.WEBHOOK_SENDER_ID
     ) {
-        const data: string[] = message.content.split(":");
-        const email: string = data[0];
-        const name: string = data[1];
-        let userTag: string = data[2];
+        const data: string[] = message.content.split(",");
 
-        // updated for new username strings
-        if (!userTag.includes("#")) userTag = userTag.toLowerCase() + "#0";
+        // // updated for new username strings
+        // if (!userTag.includes("#")) userTag = userTag.toLowerCase() + "#0";
 
-        // find the guild the user is in
-        const guild: Guild | undefined = client.guilds.cache.get(
-            config.GUILD_ID
-        );
-        if (!guild) throw new Error("invalid guild");
+        // // find the guild the user is in
+        // const guild: Guild | undefined = client.guilds.cache.get(
+        //     config.GUILD_ID
+        // );
+        // if (!guild) throw new Error("invalid guild");
 
-        // get list of all members of guild
-        const memberList = await guild.members.fetch({});
-        const userInGuild = memberList.find((u) => {
-            console.log(u.user.username + "#" + u.user.discriminator);
-            return u.user.username + "#" + u.user.discriminator === userTag;
-        });
+        // // get list of all members of guild
+        // const memberList = await guild.members.fetch({});
+        // const userInGuild = memberList.find((u) => {
+        //     console.log(u.user.username + "#" + u.user.discriminator);
+        //     return u.user.username + "#" + u.user.discriminator === userTag;
+        // });
 
-        // choose automatic or manual verification if user is in guild cache
-        userInGuild
-            ? verifyUser(email, name, userInGuild.user, client, guild)
-            : logVerificationErrorMessage(userTag, client);
+        // // choose automatic or manual verification if user is in guild cache
+        // userInGuild
+        //     ? verifyUser(email, name, userInGuild.user, client, guild)
+        //     : logVerificationErrorMessage(userTag, client);
+
+        // Send a verification email with verification code
+        // verifyUser(email, name, userTag);
+
+        tagUser(data[4], message.content, message);
+    } else if (
+        message.content.startsWith("!verify ") &&
+        message.channelId === config.VERIFY_CHANNEL
+        //&& message.author.id === config.WEBHOOK_SENDER_ID
+    ) {
+        verifyUser(client, message);
     }
 });
 
