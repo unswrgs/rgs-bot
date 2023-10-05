@@ -6,6 +6,6 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
     return interaction.reply(
-        "RGS's very own automatic verification bot for non-unsw members 🚀"
+        "UNSW LOFI SOCIETY very own automatic verification bot for all members 🚀"
     );
 }

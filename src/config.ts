@@ -12,21 +12,22 @@ const {
     VERIFIED_ROLE_ID,
     LOGGING_CHANNEL_ID,
     WEBHOOK_SENDER_ID,
+    VERIFY_CHANNEL,
 } = process.env;
 
-if (
-    !DISCORD_TOKEN ||
-    !DISCORD_CLIENT_ID ||
-    !GUILD_ID ||
-    !SENDGRID_API_KEY ||
-    !BOT_ID ||
-    !WEBHOOK_CHANNEL ||
-    !VERIFIED_ROLE_ID ||
-    !LOGGING_CHANNEL_ID ||
-    !WEBHOOK_SENDER_ID
-) {
-    throw new Error("Missing environment variables");
-}
+// if (
+//     !DISCORD_TOKEN ||
+//     !DISCORD_CLIENT_ID ||
+//     !GUILD_ID ||
+//     !SENDGRID_API_KEY ||
+//     !BOT_ID ||
+//     !WEBHOOK_CHANNEL ||
+//     !VERIFIED_ROLE_ID ||
+//     !LOGGING_CHANNEL_ID ||
+//     !WEBHOOK_SENDER_ID
+// ) {
+//     throw new Error("Missing environment variables");
+// }
 
 /**
  * Wrapper for environment variables to make sure the
@@ -42,4 +43,5 @@ export const config = {
     VERIFIED_ROLE_ID,
     LOGGING_CHANNEL_ID,
     WEBHOOK_SENDER_ID,
+    VERIFY_CHANNEL,
 };
