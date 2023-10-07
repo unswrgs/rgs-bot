@@ -16,6 +16,6 @@ export async function execute(interaction: CommandInteraction) {
     const roundtripLatency = differenceInMilliseconds(startTime, endTime);
 
     return interaction.editReply(
-        `Pong!: ${roundtripLatency}ms`
+        `Pong!\n${roundtripLatency}ms`
     );
 }
