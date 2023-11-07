@@ -76,7 +76,7 @@ export const sendVerificationEmail = (
     sgMail
         .send(msg)
         .then(() => {
-            console.log("Email sent");
+            console.log("Email sent to " + email);
         })
         .catch((error) => {
             console.error(error);
