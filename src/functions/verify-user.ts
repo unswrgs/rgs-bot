@@ -19,6 +19,16 @@ export const verifyUser = async (
     client: Client,
     guild: Guild
 ) => {
+    try {
+        const member = guild.members.cache.get(user.id);
+        if (!member) throw new Error("invalid member");
+        const role = guild.roles.cache.get(config.VERIFIED_ROLE_ID);
+        if (!role) throw new Error("invalid role ID");
+        await member.roles.add(role);
+    } catch (e) {
+        logVerificationErrorMessage(user.username, client);
+    }
+    /*
     const code: string = randomUUID().toString();
     user.createDM()
         .then((dm) => {
@@ -137,4 +147,6 @@ export const verifyUser = async (
         .catch((err) => {
             console.error(err);
         });
+
+    */
 };
