@@ -6,7 +6,7 @@ const {
     DISCORD_TOKEN,
     DISCORD_CLIENT_ID,
     GUILD_ID,
-    SENDGRID_API_KEY,
+    BREVO_API_KEY,
     BOT_ID,
     WEBHOOK_CHANNEL,
     VERIFIED_ROLE_ID,
@@ -18,7 +18,7 @@ if (
     !DISCORD_TOKEN ||
     !DISCORD_CLIENT_ID ||
     !GUILD_ID ||
-    !SENDGRID_API_KEY ||
+    !BREVO_API_KEY ||
     !BOT_ID ||
     !WEBHOOK_CHANNEL ||
     !VERIFIED_ROLE_ID ||
@@ -38,7 +38,7 @@ export const config = {
     BOT_ID,
     WEBHOOK_CHANNEL,
     GUILD_ID,
-    SENDGRID_API_KEY,
+    BREVO_API_KEY,
     VERIFIED_ROLE_ID,
     LOGGING_CHANNEL_ID,
     WEBHOOK_SENDER_ID,
